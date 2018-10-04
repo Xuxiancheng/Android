@@ -108,22 +108,22 @@ Uri uri = Uri.parse("file:///sdcard/foo.mp3");
 intent.setDataAndType(uri, "audio/mp3");
 startActivity(intent);
 
-//获取SD卡下所有音频文件,然后播放第一首=-= 
+//获取SD卡下所有音频文件,然后播放第一首=-=
 Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, "1");
 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 startActivity(intent);
 
 //9.打开摄像头拍照:
 // 打开拍照程序
-Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); 
+Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 startActivityForResult(intent, 0);
 // 取出照片数据
-Bundle extras = intent.getExtras(); 
+Bundle extras = intent.getExtras();
 Bitmap bitmap = (Bitmap) extras.get("data");
 
 //另一种:
 //调用系统相机应用程序，并存储拍下来的照片
-Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); 
+Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 time = Calendar.getInstance().getTimeInMillis();
 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment
 .getExternalStorageDirectory().getAbsolutePath()+"/tucue", time + ".jpg")));
@@ -137,48 +137,48 @@ intent.putExtra("crop", "true"); // 开启剪切
 intent.putExtra("aspectX", 1); // 剪切的宽高比为1：2
 intent.putExtra("aspectY", 2);
 intent.putExtra("outputX", 20); // 保存图片的宽和高
-intent.putExtra("outputY", 40); 
+intent.putExtra("outputY", 40);
 intent.putExtra("output", Uri.fromFile(new File("/mnt/sdcard/temp"))); // 保存路径
 intent.putExtra("outputFormat", "JPEG");// 返回格式
 startActivityForResult(intent, 0);
 // 剪切特定图片
-Intent intent = new Intent("com.android.camera.action.CROP"); 
-intent.setClassName("com.android.camera", "com.android.camera.CropImage"); 
-intent.setData(Uri.fromFile(new File("/mnt/sdcard/temp"))); 
+Intent intent = new Intent("com.android.camera.action.CROP");
+intent.setClassName("com.android.camera", "com.android.camera.CropImage");
+intent.setData(Uri.fromFile(new File("/mnt/sdcard/temp")));
 intent.putExtra("outputX", 1); // 剪切的宽高比为1：2
 intent.putExtra("outputY", 2);
 intent.putExtra("aspectX", 20); // 保存图片的宽和高
 intent.putExtra("aspectY", 40);
 intent.putExtra("scale", true);
-intent.putExtra("noFaceDetection", true); 
-intent.putExtra("output", Uri.parse("file:///mnt/sdcard/temp")); 
+intent.putExtra("noFaceDetection", true);
+intent.putExtra("output", Uri.parse("file:///mnt/sdcard/temp"));
 startActivityForResult(intent, 0);
 
-//11.打开Google Market 
+//11.打开Google Market
 // 打开Google Market直接进入该程序的详细页面
 Uri uri = Uri.parse("market://details?id=" + "com.demo.app");
 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 startActivity(intent);
 
 //12.进入手机设置界面:
-// 进入无线网络设置界面（其它可以举一反三）  
-Intent intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);  
+// 进入无线网络设置界面（其它可以举一反三）
+Intent intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
 startActivityForResult(intent, 0);
 
 //13.安装apk:
-Uri installUri = Uri.fromParts("package", "xxx", null);   
+Uri installUri = Uri.fromParts("package", "xxx", null);
 returnIt = new Intent(Intent.ACTION_PACKAGE_ADDED, installUri);
 
 //14.卸载apk:
-Uri uri = Uri.fromParts("package", strPackageName, null);      
-Intent it = new Intent(Intent.ACTION_DELETE, uri);      
-startActivity(it); 
+Uri uri = Uri.fromParts("package", strPackageName, null);
+Intent it = new Intent(Intent.ACTION_DELETE, uri);
+startActivity(it);
 
 //15.发送附件:
-Intent it = new Intent(Intent.ACTION_SEND);      
-it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");      
-it.putExtra(Intent.EXTRA_STREAM, "file:///sdcard/eoe.mp3");      
-sendIntent.setType("audio/mp3");      
+Intent it = new Intent(Intent.ACTION_SEND);
+it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");
+it.putExtra(Intent.EXTRA_STREAM, "file:///sdcard/eoe.mp3");
+sendIntent.setType("audio/mp3");
 startActivity(Intent.createChooser(it, "Choose Email Client"));
 
 //16.进入联系人页面:
@@ -206,7 +206,7 @@ String currentActivityName=getClass.getSimpleName();
 ```
 ###8.如何结束所有的Activity
 创建一个BaseActivity.java
-```java 
+```java
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -223,7 +223,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCllection.remoceActivity(this);
-    }    
+    }
 }
 ```
 
@@ -255,18 +255,18 @@ public class ActivityCllection {
 ```
 ###9.完全退出App的方法
 ```java
-/** 
- * 退出应用程序 
- */  
-public void AppExit(Context context) {  
-    try {  
-        ActivityCollector.finishAll();  
-        ActivityManager activityMgr = (ActivityManager) context  
-                .getSystemService(Context.ACTIVITY_SERVICE);  
-        activityMgr.killBackgroundProcesses(context.getPackageName());  
-        System.exit(0);  
-    } catch (Exception ignored) {}  
-}  
+/**
+ * 退出应用程序
+ */
+public void AppExit(Context context) {
+    try {
+        ActivityCollector.finishAll();
+        ActivityManager activityMgr = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        activityMgr.killBackgroundProcesses(context.getPackageName());
+        System.exit(0);
+    } catch (Exception ignored) {}
+}
 ```
 ###10.双击退出程序
 ```java
@@ -339,3 +339,95 @@ android:theme="@style/Theme.AppCompat.Light.NoActionBar"
 ```
 
 >AppCompatActivity有不少坑
+
+###13.开源中国的Activity管理代码：
+```java
+import java.util.Stack;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+
+
+public class AppManager {
+
+    private static Stack<Activity> activityStack;
+    private static AppManager instance;
+
+    private AppManager(){}
+    /**
+     * 单一实例
+     */
+    public static AppManager getAppManager(){
+        if(instance==null){
+            instance=new AppManager();
+        }
+        return instance;
+    }
+    /**
+     * 添加Activity到堆栈
+     */
+    public void addActivity(Activity activity){
+        if(activityStack==null){
+            activityStack=new Stack<Activity>();
+        }
+        activityStack.add(activity);
+    }
+    /**
+     * 获取当前Activity（堆栈中最后一个压入的）
+     */
+    public Activity currentActivity(){
+        Activity activity=activityStack.lastElement();
+        return activity;
+    }
+    /**
+     * 结束当前Activity（堆栈中最后一个压入的）
+     */
+    public void finishActivity(){
+        Activity activity=activityStack.lastElement();
+        finishActivity(activity);
+    }
+    /**
+     * 结束指定的Activity
+     */
+    public void finishActivity(Activity activity){
+        if(activity!=null){
+            activityStack.remove(activity);
+            activity.finish();
+            activity=null;
+        }
+    }
+    /**
+     * 结束指定类名的Activity
+     */
+    public void finishActivity(Class<?> cls){
+        for (Activity activity : activityStack) {
+            if(activity.getClass().equals(cls) ){
+                finishActivity(activity);
+            }
+        }
+    }
+    /**
+     * 结束所有Activity
+     */
+    public void finishAllActivity(){
+        for (int i = 0, size = activityStack.size(); i < size; i++){
+            if (null != activityStack.get(i)){
+                activityStack.get(i).finish();
+            }
+        }
+        activityStack.clear();
+    }
+    /**
+     * 退出应用程序
+     */
+    public void AppExit(Context context) {
+        try {
+            finishAllActivity();
+            ActivityManager activityMgr= (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            activityMgr.restartPackage(context.getPackageName());
+            System.exit(0);
+        } catch (Exception e) {    }
+    }
+}
+```
