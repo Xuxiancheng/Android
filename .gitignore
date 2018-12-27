@@ -1,4 +1,5 @@
 .DS_Store
 boostnote.json
 *.cson
-.resource/
+commit.json
+DeveloperNote/*.resource/commit.json
