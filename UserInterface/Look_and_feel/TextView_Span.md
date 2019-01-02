@@ -1,27 +1,27 @@
-####TextView中的Spans学习
-1. 什么是Spans?
->Spans are powerful markup objects that you can use to style text at a character or paragraph level
+#### TextView中的Spans学习
+##### 1. 什么是Spans?
+> Spans are powerful markup objects that you can use to style text at a character or paragraph level
 
 译文
->Spans是功能强大的标记对象，可用于在字符或段落级别设置文本样式
+> Spans是功能强大的标记对象，可用于在字符或段落级别设置文本样式
 
-2. Spans类型
+##### 2. Spans类型
 
->Mutable text       可变文本
->Mutable markup     可变标记
->Data structure     数据结构
+> Mutable text       可变文本
+> Mutable markup     可变标记
+> Data structure     数据结构
 
-![](./Screen/TextView_Spans_typelist.jpg)
+ ![span_typelist](./Screen/TextView_Spans_typelist.jpg)
 
-3. 如何选择使用哪种类型的Spans?
+##### 3. 如何选择使用哪种类型的Spans?
 
 . 创建之后不会改变文本和标记,使用**SpannedString**
 . 如果需要将少量范围附加到单个文本对象，并且文本本身是只读的,使用**SpannableString**
 . 如果创建后需要修改文本，并且需要将跨度附加到文本，请使用**SpanNableStringBuilder**
 . 如果需要将大量跨度附加到文本对象，不管文本本身是否为只读，请使用**SpanNableStringBuilder**
 
-4. 例子
-######更改文本颜色
+##### 4. 例子
+###### 更改文本颜色
 ```java
 SpannableStringBuilder spannable = new SpannableStringBuilder("Text is spantastic!");
 spannable.setSpan(
@@ -32,7 +32,7 @@ spannable.setSpan(
 );
 ```
 ![](./Screen/spans-fg-color.png)
-######添加文本
+###### 添加文本
 ```java
 SpannableStringBuilder spannable = new SpannableStringBuilder("Text is spantastic!");
 spannable.setSpan(
@@ -44,7 +44,7 @@ spannable.setSpan(
 spannable.insert(12, "(& fon)");
 ```
 ![](./Screen/spans-fg-color-2.png)
-######加粗文本
+###### 加粗文本
 ```java
 SpannableString spannable = SpannableString(“Text is spantastic!”);
 spannable.setSpan(
@@ -60,35 +60,35 @@ spannable.setSpan(
 ```
 ![](./Screen/spans-bold-red.png)
 
-######添加下划线
+###### 添加下划线
 ```java
 SpannableString string = new SpannableString("Text with underline span");
 string.setSpan(new UnderlineSpan(), 10, 19, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 ```
 ![](./Screen/spans-underlinespan.png)
 
-######更改文本大小
+###### 更改文本大小
 ```java
 SpannableString string = new SpannableString("Text with relative size span");
 string.setSpan(new RelativeSizeSpan(1.5f), 10, 24, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 ```
 ![](./Screen/spans-relativesizespan.png)
 
-######更改文本背景
+###### 更改文本背景
 ```java
 SpannableString string = new SpannableString("Text with a background color span");
 string.setSpan(new BackgroundColorSpan(color), 12, 28, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 ```
 ![](./Screen/spans-backgroundcolorspan.png)
 
-######插入图片
+###### 插入图片
 ```java
 SpannableStringBuilder spannableStringBuilder=new SpannableStringBuilder("hello,this is a example");
 ImageSpan imageSpan=new ImageSpan(this,R.drawable.ic_launcher_foreground);
 spannableStringBuilder.setSpan(imageSpan,4,6,Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 ```
 ![网上找的图片](./Screen/spans-insertpic.png)
-######加入点击事件
+###### 加入点击事件
 ```java
 SpannableStringBuilder spannableStringBuilder=new SpannableStringBuilder("hello,this is a example");
 ClickableSpan clickableSpan=new ClickableSpan() {
@@ -104,7 +104,7 @@ spannableStringBuilder.setSpan(clickableSpan,0,2,Spanned.SPAN_EXCLUSIVE_INCLUSIV
 ```
 
 
-5. 自定义Spans
+#####  5. 自定义Spans
 ```java
 public class RelativeSizeColorSpan extends RelativeSizeSpan {
     private int color;
@@ -119,7 +119,7 @@ public class RelativeSizeColorSpan extends RelativeSizeSpan {
     }
 }
 ```
-6. 详细用法
+##### 6. 详细用法
 SpannableStringBuilder和SpannableString主要通过使用setSpan(Object what, int start, int end, int flags)改变文本样式
 ```xml
 start： 指定Span的开始位置
@@ -151,7 +151,7 @@ URLSpan : 文本超链接
 ClickableSpan : 点击事件
 ```
 
-7. Best practices for using spans
+##### 7. Best practices for using spans
 ```java
 textView.setText(spannable, BufferType.SPANNABLE);
 Spannable spannableText = (Spannable) textView.getText();

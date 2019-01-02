@@ -1,8 +1,6 @@
-### Fragment学习
+## Fragment学习
 
 #### 1.Fragment周期
-
-
 
 ![fragment_lifecycle.png](Screen/fragment_lifecycle.png)
 
@@ -10,12 +8,10 @@ log打印：
 
 ![fragment_lifecycle2.png](Screen/fragment_lifecycle2.png)
 
+##### 周期说明
 
-
-#####周期说明
-
-1. ######onAttach()
-
+1. ###### onAttach()
+ 
    这个是回调函数
    这个时候 activity已经传进来了,获得activity的传递的值
    就可以进行 与activity的通信里
@@ -23,7 +19,7 @@ log打印：
    并且没有脱离
    只调用一次
 
-2. ######onCreate()
+2. ###### onCreate()
 
    系统创建fragment的时候回调他，在他里面实例化一些变量
    这些个变量主要是：当你 暂停 停止的时候 你想保持的数据
@@ -34,7 +30,7 @@ log打印：
 
    只调用一次
 
-3. ######onCreateView()
+3. ###### onCreateView()
 
    第一次使用的时候 fragment会在这上面画一个layout出来，
    为了可以画控件 要返回一个 布局的view，也可以返回null
@@ -49,7 +45,7 @@ log打印：
    }
    ```
 
-4. ######onActivityCteated
+4. ###### onActivityCteated
 
    当Activity中的onCreate方法执行完后调用。    
    注意了：
@@ -58,30 +54,30 @@ log打印：
    所以不能再onCreateView()中进行 与activity有交互的UI操作，UI交互操作可以砸onActivityCreated()里面进行。
    所以：这个方法主要是初始化那些你需要你的父Activity或者Fragment的UI已经被完整初始化才能初始化的元素。可以在此处初始化list view
 
-5. ######onStart()
+5. ###### onStart()
 
    和activity等同 
    启动, Fragement 启动时回调, 此时Fragement可见
 
-6. ######onResume()
+6. ###### onResume()
 
    和activity等同 
    在activity中运行是可见的激活, Fragement 进入前台, 可获取焦点时激活;
 
-7. ######onPause()
+7. ###### onPause()
 
    和activity等同   
    其他的activity获得焦点，这个仍然可见第一次调用的时候，
    指的是 用户 离开这个fragment（并不是被销毁）
    通常用于 用户的提交（可能用户离开后不会回来了）
 
-8. ######onStop()
-
+8. ###### onStop()
+ 
    和activity等同 
    fragment不可见的，可能情况：activity被stopped了 OR  fragment被移除但被加入到回退栈中
    一个stopped的fragment仍然是活着的如果长时间不用也会被移除
 
-9. ######onDestroyView()
+9. ###### onDestroyView()
 
    Fragment中的布局被移除时调用。
    表示fragemnt销毁相关联的UI布局清除所有跟视图相关的资源
@@ -99,17 +95,17 @@ log打印：
    }
    ```
 
-10. ######onDestroy()
+10. ###### onDestroy()
 
     销毁fragment对象时调用
 
-11. ######onDetach()
+11. ###### onDetach()
 
     与Activity解除绑定时调用
 
 
 
-#### 2.动态添加Fragment
+####  2.动态添加Fragment
 
 ```java
  FragmentManager fm = getSupportFragmentManager();
@@ -582,5 +578,5 @@ customeFragmentDialog.setOnConfirmeCLickListener(new CustomeFragmentDialog.onCon
 
 效果:
 
-![dialog_fragment](/Users/xxc/Git/private/Android/Basic/Screen/dialogfragment.png)
+![dialog_fragment](Screen/dialogfragment.png)
 
