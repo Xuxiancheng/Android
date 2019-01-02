@@ -1,12 +1,11 @@
-#Toast的使用方式
->Toast只能用来显示，而不能用于任何点击操作
->如果需要点击操作，建议学习 Snackbar
->官方也支持使用Snackbar
+# Toast的使用方式
+> Toast只能用来显示，而不能用于任何点击操作
+> 如果需要点击操作，建议学习 Snackbar
+> 官方也支持使用Snackbar
 *********************
+## 代码
 
-不说了，直接上代码
-
-１．自定义shape
+### １．自定义shape
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
@@ -29,10 +28,8 @@
 
 </shape>
 ```
-如图所示：
-![shape](Screen/custome_toast_shape.png)
 
-2.自定义布局
+### 2.自定义布局
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -65,7 +62,7 @@
 注意此处的　android:id="@+id/lly_toast"，这是必须有的
 
 
-3.java代码
+### 3.java代码
 ```java
 package com.example.xxc.toast;
 
