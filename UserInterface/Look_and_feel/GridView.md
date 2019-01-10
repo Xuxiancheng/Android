@@ -45,7 +45,7 @@ drawSelectorOnTop="false" //点击某条记录不放，颜色会在记录的后�
 ```
 4.具体用法
 1.gridview布局
-``` xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -301,7 +301,7 @@ public class Gridviewdemo extends AppCompatActivity {
 
 }
 ```
-6.效果
 
-![](Screen/gridview.png)
+6.效果
+![grideview](Screen/gridview.png)
 
