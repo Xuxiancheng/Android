@@ -1,4 +1,4 @@
-#刷新MediaStore的方法
+# 刷新MediaStore的方法
 1、获取多媒体文件
 MediaStore这个类是android系统提供的一个多媒体数据库，android中多媒体信息都可以从这里提取。Android把所有的多媒体数据库接口进行了封装，所有的数据库不用自己进行创建，直接调用利用ContentResolver去掉用那些封装好的接口就可以进行数据库的操作了。 
 路径是在 /data/data/com.android.providers.media/databases/external.db 

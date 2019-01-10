@@ -76,7 +76,7 @@ public class MyAccessibility extends AccessibilityService {
 > 
 > android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" 权限
 >
->android:resource="@xml/accessibility" 配置文件
+> android:resource="@xml/accessibility" 配置文件
 
 到此为止就可以使用辅助功能了！
 

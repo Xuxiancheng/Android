@@ -1,4 +1,4 @@
-##Android Cursor 正确的遍历方法
+## Android Cursor 正确的遍历方法
 
 ```java
 //cursor不为空，moveToFirst为true说明有数据
@@ -23,7 +23,7 @@ if(cursor!=null&&cursor.moveToFirst()){
 }
 ```
 
-> moveToFirst里面对pos和count做了判断了：
+>  moveToFirst里面对pos和count做了判断了：
 ```java
 // Make sure position isn't past the end of the cursor
 final int count = getCount();

@@ -1,6 +1,6 @@
-#PopupWindwo的基本使用
+# PopupWindwo的基本使用
 介绍：这是一个可以显示任何view的弹窗控件，而且会浮动在当前actiivity的顶部
->注意：AlertDialog是非堵塞线程，而Popupwindow是堵塞线程的
+> 注意：AlertDialog是非堵塞线程，而Popupwindow是堵塞线程的
 ****
 
 用法：
@@ -145,5 +145,5 @@ public class PopWindowsDemo extends AppCompatActivity {
 ```
 
 效果如下图所示：
-![](Screen/popupwindow.png)
+![popuview](Screen/popupwindow.png)
 
