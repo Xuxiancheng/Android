@@ -1,19 +1,26 @@
-#Activity学习
-##1.Activity的概念及生命周期
-![](Screen/ActivityStudy/Activity_lifecycle.png)
+# Activity学习
+
+## 1.Activity的概念及生命周期
+
+![lifecycle](Screen/ActivityStudy/Activity_lifecycle.png)
 下图来自官网的说明：
 
-![](Screen/ActivityStudy/Activity_CallBack.png)
+![call_back](Screen/ActivityStudy/Activity_CallBack.png)
 
-##2.启动另一个Ａctivity的方式
+## 2.启动另一个Ａctivity的方式
+
 .显示启动：
+
 ```java
 //显式启动的方式
         Intent intent=new Intent(MainActivity.this,SecondActivity.class);
         MainActivity.this.startActivity(intent);
 ```
+
 .隐式启动:
+
 AndroidManifest.xml
+
 ```xml
  <activity android:name=".SecondActivity"
            android:label="第二个界面">
@@ -26,6 +33,7 @@ AndroidManifest.xml
 ```
 
 java代码:
+
 ```java
                 //隐式启动
                 Intent intent=new Intent();
@@ -34,9 +42,12 @@ java代码:
                 startActivity(intent);
 ```
 
-###3.横竖屏切换的问题
-![](Screen/ActivityStudy/Activity_Orientation.png)
-###4.系统常见的Activity(很有用)
+### 3.横竖屏切换的问题
+
+![orientation](Screen/ActivityStudy/Activity_Orientation.png)
+
+### 4.系统常见的Activity(很有用)
+
 ```java
 //1.拨打电话
 // 给移动客服10086拨打电话
@@ -195,17 +206,26 @@ intent.setData(personUri);
 startActivity(intent);
 ```
 
-###5.Activity间传递数据
-![](Screen/ActivityStudy/Activity_data.png)
-###6.多个Activity间的交互(后一个传回给前一个)
-![](Screen/ActivityStudy/Activity_data2.jpg)
-###7.知晓当前是哪个Activity
+### 5.Activity间传递数据
+
+![data](Screen/ActivityStudy/Activity_data.png)
+
+### 6.多个Activity间的交互(后一个传回给前一个)
+
+![data2](Screen/ActivityStudy/Activity_data2.jpg)
+
+### 7.知晓当前是哪个Activity
+
 一般用于BaseActivity中，所有的Activity只需要继承此类即可
+
 ```java
 String currentActivityName=getClass.getSimpleName();
 ```
-###8.如何结束所有的Activity
+
+### 8.如何结束所有的Activity
+
 创建一个BaseActivity.java
+
 ```java
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -228,6 +248,7 @@ public class BaseActivity extends AppCompatActivity {
 ```
 
 创建一个ActivityCollection.java
+
 ```java
 import android.app.Activity;
 import java.util.ArrayList;
@@ -253,7 +274,9 @@ public class ActivityCllection {
     }
 }
 ```
-###9.完全退出App的方法
+
+### 9.完全退出App的方法
+
 ```java
 /**
  * 退出应用程序
@@ -268,7 +291,9 @@ public void AppExit(Context context) {
     } catch (Exception ignored) {}
 }
 ```
-###10.双击退出程序
+
+### 10.双击退出程序
+
 ```java
 // 定义一个变量，来标识是否退出
 private static boolean isExit = false;
@@ -297,6 +322,7 @@ return super.onKeyDown(keyCode, event);}
 ```
 
 或者
+
 ```java
 //保存点击的时间
 private long exitTime = 0;
@@ -315,17 +341,21 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 }
 ```
 
-###11.设置Activity全屏的方法
+### 11.设置Activity全屏的方法
+
 .代码隐藏ActionBar
+
 ```java
 //注意需要集成Activity，否则会崩溃
 getActionBar().hide();
 ```
+
 .通过requestWindowFeature设置
->继承了AppCompatActivity的Activity
-无法通过调用requestWindowFeature(Window.FEATURE_NO_TITLE)来隐藏标题栏
+> 继承了AppCompatActivity的Activity
+> 无法通过调用requestWindowFeature(Window.FEATURE_NO_TITLE)来隐藏标题栏
 
 [解决方法](https://www.jianshu.com/p/2089837b5cd7)
+
 ```java
 
 //注意位置
@@ -333,14 +363,17 @@ super.onCreate(savedInstanceState);
 requestWindowFeature(Window.FEATURE_NO_TITLE);
 setContentView(R.layout.activity_main);
 ```
+
 .通过AndroidManifest.xml的theme
-``` xml
+
+```xml
 android:theme="@style/Theme.AppCompat.Light.NoActionBar"
 ```
 
->AppCompatActivity有不少坑
+> AppCompatActivity有不少坑
 
-###13.开源中国的Activity管理代码：
+### 13.开源中国的Activity管理代码：
+
 ```java
 import java.util.Stack;
 

@@ -1,4 +1,5 @@
 # Android 样式开发：SHAPE
+
 1. 位置
 
 ##### 一般用shape定义的xml文件存放在drawable目录下，若项目没有该目录则新建一个，而不要将它放到drawable-hdpi等目录中。

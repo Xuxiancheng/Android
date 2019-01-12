@@ -1,5 +1,6 @@
-###小米手机如何Remount?
-```
+### 小米手机如何Remount?
+
+```shell
 $ adb root
 restarting adbd as root
 $ adb remount

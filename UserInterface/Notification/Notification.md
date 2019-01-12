@@ -1,13 +1,15 @@
 # Notification学习
+
 ## 1. 官网说明
 
 通知是您可以在应用的常规 UI 外部向用户显示的消息。当您告知系统发出通知时，它将先以图标的形式显示在通知区域中。用户可以打开抽屉式通知栏查看通知的详细信息。 通知区域和抽屉式通知栏均是由系统控制的区域，用户可以随时查看。 
 
->[Notifications provide short, timely information about events in your app while it's not in use.](https://developer.android.com/training/notify-user/build-notification)
+> [Notifications provide short, timely information about events in your app while it's not in use.](https://developer.android.com/training/notify-user/build-notification)
 
 ![pic](./Screen/notification_drawer.png)
 
 ## 2.创建通知
+
 您可以在 NotificationCompat.Builder 对象中为通知指定 UI 信息和操作。要创建通知，请调用 NotificationCompat.Builder.build()，它将返回包含您的具体规范的 Notification 对象。要发出通知，请通过调用 NotificationManager.notify() 将 Notification 对象传递给系统。
 
 **必需的通知内容**
@@ -18,9 +20,10 @@ Notification 对象必须包含以下内容：
     标题，由setContentTitle() 设置
     详细文本，由setContentText() 设置
 
-![](./Screen/notification-basic_2x.png)
+![basic](./Screen/notification-basic_2x.png)
 
 例子：
+
 ```java
 NotificationManager notificationManager = getSystemService(NotificationManager.class);
 //8.0后要加入渠道组
@@ -43,10 +46,13 @@ NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANN
  //显示通知，id随意但是要记住       
  notificationManager.notify(1,notificationBuilder.build());       
 ```
-***notification ID 注意点***
+
+**notification ID 注意点**
+
 > Remember to save the notification ID that you pass to NotificationManagerCompat.notify() because you'll need it later if you want to update or remove the notification.
 
 ## 3.设置点击事件
+
 ```java
 // Create an explicit intent for an Activity in your app
 Intent intent = new Intent(this, AlertDetails.class);
@@ -64,7 +70,9 @@ NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANN
         //点击后通知消失
         .setAutoCancel(true);
 ```
+
 添加动作点击按钮
+
 ```java
 Intent snoozeIntent = new Intent(this, MyBroadcastReceiver.class);
 snoozeIntent.setAction(ACTION_SNOOZE);
@@ -90,7 +98,9 @@ NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANN
 * Notification.PRIORITY_DEFAULT 	默认优先级用于没有特殊优先级分类的通知
 * Notification.PRIORITY_LOW 	低优先级可以通知用户但又不是很紧急的事件。只显示状态栏图标
 * Notification.PRIORITY_MIN 	用于后台消息 (例如天气或者位置信息)。只有用户下拉通知抽屉才能看到内容
+
 ## 4.添加progress bar
+
 ```java
 ...
 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -119,9 +129,10 @@ mBuilder.setContentText("Download complete")
 notificationManager.notify(notificationId, mBuilder.build());
 ```
 
-![](./Screen/notification-progressbar_2x.png)
+![progressbar](./Screen/notification-progressbar_2x.png)
 
 ## 5.清除所有的通知
+
  Notifications remain visible until one of the following happens:
 
      1. The user dismisses the notification.
@@ -137,7 +148,9 @@ manager.cancel(notifyId);
 // 取消所有通知 
 manager.cancelAll();
 ```
+
 ## 6.设置锁定屏幕可见性
+
 To control the level of detail visible in the notification from the lock screen, call setVisibility() and specify one of the following values:
 
     VISIBILITY_PUBLIC shows the notification's full content.
@@ -149,6 +162,7 @@ When **VISIBILITY_PRIVATE** is set, you can also provide an alternate version of
 However, the user always has final control over whether their notifications are visible on the lock screen and can even control that based on your app's notification channels.
 
 ## 7.提醒通知到达
+
 提供了 铃声/振动/呼吸灯 三种提醒方式，可以使用一种或同时使用多种
 
 使用默认提醒
@@ -181,6 +195,7 @@ builder.setLights(argb, onMs, offMs);
 ```
 
 ## 8. 保留 Activity 返回栈
+
 常规 Activity
 
 默认情况下，从通知启动一个Activity，按返回键会回到主屏幕。
@@ -195,7 +210,9 @@ builder.setLights(argb, onMs, offMs);
     android:parentActivityName=".MainActivity">
 </activity>
 ```
+
 2、构建带返回栈的PendingIntent并发送通知
+
 ```java
 // 构建返回栈 
 TaskStackBuilder tsb = TaskStackBuilder.create(this);
@@ -209,7 +226,9 @@ NotificationCompat.Builder builder = new NotificationCompat.Builder(this); ... b
 NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 manager.notify(notifyId, builder.build());
 ```
+
 ---
+
 ## 9. 特殊Activity
 
 默认情况下，从通知启动的Activity会在近期任务列表里出现。
@@ -217,15 +236,18 @@ manager.notify(notifyId, builder.build());
 如果不需要在近期任务里显示，则需要做以下操作:
 
 1、在manifest中定义Activity
+
 ```xml
-<activity
+<activity 
 android:name=".ResultActivity" 
 android:launchMode="singleTask" 
 android:taskAffinity=""
 android:excludeFromRecents="true"> 
 </activity>
 ```
+
 2、构建PendingIntent并发送通知
+
 ```java
 // 创建 Intent 
 Intent intent = new Intent(this, ResultActivity.class);

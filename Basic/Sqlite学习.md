@@ -1,5 +1,7 @@
-#sqlite学习
+## sqlite学习
+
 1.创建数据库
+
 ```java
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -34,12 +36,15 @@ public class SqliteCreateUtils extends SQLiteOpenHelper {
     }
 }
 ```
+
 调用构造函数
+
 ```java
 new SqliteCreateUtils(MainActivity.this,"demo.db",null,1);
 ```
 
 获得SqliteDatabase对象
+
 ```java
 //   sqLiteDatabase=sqliteCreateUtils.getWritableDatabase();
 // 使用  getWritableDatabase()方法会在磁盘空间满时出现异常，而下面这种方法只会以只读方式打开数据库
@@ -47,6 +52,7 @@ sqLiteDatabase=sqliteCreateUtils.getReadableDatabase();
 ```
 
 2,数据库四大操作，增删查改
+
 ```java
 //增
 ContentValues contentValues=new ContentValues();

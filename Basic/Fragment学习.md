@@ -1,6 +1,6 @@
 ## Fragment学习
 
-#### 1.Fragment周期
+####  1.Fragment周期
 
 ![fragment_lifecycle.png](Screen/fragment_lifecycle.png)
 

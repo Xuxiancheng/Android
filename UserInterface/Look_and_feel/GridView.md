@@ -1,4 +1,5 @@
 # GridView学习笔记
+
 1.介绍
 多控件布局，与listview一样都是可以在有限的空间布局中显示更多的数据，
 gridview多用于网格式的布局，像九宫格布局是最常见的。
@@ -8,7 +9,8 @@ gridview多用于网格式的布局，像九宫格布局是最常见的。
 . 设置适配器
 
 3.属性
-```
+
+```text
 numColumns="auto_fit"     //GridView的列数设置为自动
 
 verticalSpacing="10dp"    //两行之间的边距
@@ -43,8 +45,10 @@ transcriptMode="alwaysScroll" //当你动态添加数据时，列表将自动往
 
 drawSelectorOnTop="false" //点击某条记录不放，颜色会在记录的后面成为背景色,内容的文字可见(缺省为false)
 ```
+
 4.具体用法
 1.gridview布局
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -69,6 +73,7 @@ drawSelectorOnTop="false" //点击某条记录不放，颜色会在记录的后�
 ```
 
 2.griditem
+
 ```java
 package com.example.xxc.gridview;
 
@@ -100,6 +105,7 @@ public class GridItem {
 
 
 3.adapter
+
 ```java
 package com.example.xxc.gridview;
 
@@ -193,6 +199,7 @@ public class HelpGridViewAdapter  extends BaseAdapter {
 ```
 
 4.custome_layout
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -230,6 +237,7 @@ public class HelpGridViewAdapter  extends BaseAdapter {
 ```
 
 5.how to use?
+
 ```java
 package com.example.xxc.gridview;
 
