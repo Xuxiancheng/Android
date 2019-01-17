@@ -1,5 +1,9 @@
-#广播学习
-###常用的广播
+# 广播学习
+
+### 常用的广播
+
+
+
 ```java
 intent.action.AIRPLANE_MODE;
 //关闭或打开飞行模式时的广播
@@ -164,3 +168,4 @@ Intent.ACTION_USER_PRESENT;
 Intent.ACTION_WALLPAPER_CHANGED;
 //设备墙纸已改变时发出的广播
 ```
+
