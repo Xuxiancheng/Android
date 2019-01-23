@@ -1,6 +1,6 @@
-#### 判断手机是否root?
+## 判断手机是否root?
 
-1.搜索手机中的指定文件
+### 1.搜索手机中的指定文件
 
 ```java
  private boolean isRoot() {
@@ -16,9 +16,9 @@
     }
 ```
 
-但是此方法会有遗漏
+**但是此方法会有遗漏**
 
-2.使用which命令
+### 2.使用which命令
 
 ```java
 private String runCommandShell(String string) throws IOException {
@@ -69,7 +69,7 @@ su
 
 > 但是此方法有问题，手机中可能没有which命令，可以在/sdcard/目录下push进一个busybox
 
-3.判断是否有可执行权限
+### 3.判断是否有可执行权限
 
 ```shell
 ls -l /system/bin/su                                         
@@ -116,7 +116,7 @@ private boolean isRoot() {
 
 > 此方法较为全面，但是还有遗漏的手机，比如手机的rom包更改过就无法判断，因为在手机中没有su这个文件
 
-4.使用id命令
+### 4.使用id命令
 
 ```shell
 shell@P826T20:/ $ su
