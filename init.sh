@@ -8,7 +8,59 @@
 #
 #####################
 
-
+#提交函数
+pushFun(){
+    checkout_brance="xxc_$1_$2"
+    echo $checkout_brance    
+    git checkout -b $checkout_brance
+    git add .
+    git commit -m "$input"
+    git checkout master
+    git merge --no-ff $checkout_brance
+    git status
+    git push origin master
+    git branch -d $checkout_brance
+}
 
 #删除多余的resource文件
 find . -name "*.resource"|xargs rm -rf
+
+echo "删除多余文件完成"
+
+git pull
+
+echo "拉取最新仓库代码完成!"
+
+echo "################################"
+
+curtime=`date -u +%Y%m%d`
+
+echo "当前日期:"$curtime
+
+echo "################################"
+
+git status
+
+echo "###############################"
+
+echo "若不想提交，输入:"
+
+read -p "请填写提交的内容:" input
+
+if [ "n"  = $input ]
+then
+	exit
+fi
+
+echo "提交内容为:"$input
+
+read -p "确认是否提交:y&n" push
+
+if [ "y" = $push ]
+then 
+	echo "开始提交!"
+	pushFun $curtime $input
+	echo "提交完成!"
+else 
+	exit
+fi
