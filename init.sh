@@ -44,20 +44,18 @@ echo "################################"
 
 git status  > /dev/null
 
-echo "###############################"
+echo "若不想提交，输入n:"
 
-echo "若不想提交，输入n:\n"
-
-read -p "请填写提交的内容:" input
+read -p "请填写提交的内容:---->" input
 
 if [ "n"  = $input ]
 then
 	exit
 fi
 
-echo "提交内容为:\t"$input
+echo "提交内容为:---->"$input
 
-read -p "确认是否提交:y&n\t" push
+read -p "确认是否提交:y&n---->" push
 
 if [ "y" = $push ]
 then 
