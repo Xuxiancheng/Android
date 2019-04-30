@@ -54,3 +54,4 @@ adb shell settings get system screen_off_timeout
 ```shell
 adb shell settings put system screen_off_timeout  600000
 ```
+
