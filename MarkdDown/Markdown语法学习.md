@@ -46,11 +46,15 @@ echo"hello"
 
 ## 四.引用工具
 
-使用\> 来进行引用
+使用
+
+```text
+使用>来引用
+```
 
 例如：
 
-`> 这是引用的文本`
+> 引用的示例>
 
 ## 五.列表工具
 
@@ -161,16 +165,58 @@ alt="图片名称"/>设置图片大小，再用<div align=center></div>命令包
 
 ```markdown
 
-- [ ] 待办事项
+- [[ ] 待办事项
 
-- [x] 已完事情
+- [[x] 已完事情
 
 ```
 
 - [ ] 待办事项
-
 - [x] 已完事情
 
+
+
+##  十.插入视频
+
+```html
+<video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
+      <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+      <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+      <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+```
+
+效果如下所示:
+
+<video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png"> 
+  <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">  
+    <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">      
+  <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"> 
+  <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+
+
+
+## 十一.连接打开本地文件
+
+常规链接：
+
+```text
+ [描述](链接地址) ，例如1：[知乎](http://www.zhihu.com)，注意要使用英文符号
+```
+
+打开H盘的mao文件夹：
+
+```text
+  例如2：[猫](file:///H:/mao)，注意要使用英文符号
+```
+
+打开H盘的mao文件夹里的va.mp4：
+
+```text
+  例如3：[猫](file:///H:/mao/va.mp4)，注意要使用英文符号
+```
 
 
 
