@@ -22,10 +22,13 @@ pushFun(){
     git branch -d $checkout_brance
 }
 
-#删除多余的resource文件
-find . -name "*.resource"|xargs rm -rf
 
-echo "删除多余文件完成"
+#删除多余的resource文件
+#find . -name "*.resource"|xargs rm -rf
+
+#echo "删除多余文件完成"
+
+echo "正在拉取最新的仓库..."
 
 git pull
 
@@ -39,11 +42,11 @@ echo "当前日期:"$curtime
 
 echo "################################"
 
-git status
+git status  > /dev/null
 
 echo "###############################"
 
-echo "若不想提交，输入n:"
+echo "若不想提交，输入n:\n"
 
 read -p "请填写提交的内容:" input
 
@@ -52,9 +55,9 @@ then
 	exit
 fi
 
-echo "提交内容为:"$input
+echo "提交内容为:\t"$input
 
-read -p "确认是否提交:y&n" push
+read -p "确认是否提交:y&n\t" push
 
 if [ "y" = $push ]
 then 
