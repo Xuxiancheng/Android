@@ -55,3 +55,11 @@ adb shell settings get system screen_off_timeout
 adb shell settings put system screen_off_timeout  600000
 ```
 
+8.修改Android高版本中的Wi-Fi有叉号的问题
+
+```shell
+adb shell settings put global captive_portal_https_url https://captive.v2ex.co/generate_204
+```
+
+> 默认的Android系统访问的特定服务器地址国内无法访问,出现x号
+
