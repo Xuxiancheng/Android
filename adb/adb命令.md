@@ -63,3 +63,9 @@ adb shell settings put global captive_portal_https_url https://captive.v2ex.co/g
 
 > 默认的Android系统访问的特定服务器地址国内无法访问,出现x号
 
+9.获取当前应用的包名
+
+```shell
+adb shell dumpsys window | grep  mCurrentFocus | awk  '{print $3}'|awk -F / '{print $1}'
+```
+
