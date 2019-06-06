@@ -66,3 +66,39 @@ sudo vim ~/.android/adb_usb.ini
 sudo service udev restart
 android update adb
 ```
+
+## 3.出现no permission的终极解决方法
+
+出现这种情况的原因是当前用户没有权限，需要对adb命令进行提权操作
+
+验证:
+
+```shell
+#首先杀掉adb service进程,否则影响后续adb的识别结果
+adb kill-service
+
+sudo -s
+
+adb devices 
+#adb会正常出现
+```
+
+解决方法:
+
+```shell
+which adb 
+
+------------
+/usr/lib/adb
+------------
+
+sudo chown  root.xxc adb
+
+sudo chmod 6755  /usr/lib/adb
+#提权操作
+
+adb kill-server
+```
+
+
+
