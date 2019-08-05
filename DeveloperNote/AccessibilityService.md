@@ -49,11 +49,11 @@ public class MyAccessibility extends AccessibilityService {
 >放在Android项目的res目录下的xml下，否则Android studio识别不到
 
   .  description 为 用户允许应用的辅助功能的说明字符串
-  
+
   .  packageNames，当没有指定时，默认辅助所有的应用，如指定需要监听的包名（你可以通过|来进行分隔）
-  
+
   .  typeAllMask是设置响应事件的类型
-  
+
   .  feedbackGeneric是设置回馈给用户的方式，有语音播出和振动
 
 

@@ -1,4 +1,4 @@
-# 离线使用Android Studio 教程
+# 离线使用AS
 
 ## 一.安装Android Studio 软件
 
