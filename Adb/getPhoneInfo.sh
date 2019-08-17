@@ -18,7 +18,7 @@ echo "设备序列号:" `adb get-serialno`
 
 echo  "CPU信息:"    `adb shell cat /proc/cpuinfo |grep Hardware |awk '{print $3}'`
 
-echo "Wifi Mac地址:"  `adb shell cat /sys/class/net/wlan0/address`
+echo "Wifi Mac地址:"  `adb shell "cat /sys/class/net/wlan0/address"`
 
 echo "CPU 类型:"   `adb shell getprop ro.product.cpu.abi`
 
@@ -44,7 +44,7 @@ echo "手机物理密度:"   `adb shell wm density|awk '{print $3}'`
 echo "当前手机电量:"  `adb shell dumpsys battery |grep level|awk '{print $2}'`
 
 #可用feature
-# adb shell pm list features  
+#adb shell pm list features  
 
 echo "每个应用内存的上限:"  `adb shell getprop dalvik.vm.heapsize`
 
