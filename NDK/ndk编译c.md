@@ -10,13 +10,13 @@ hello.c
 
 ``` c
 
-    #include <stdio.h>
+ #include <stdio.h>
      
-    int main()
-    {
-        printf("hello tubashu!\n");
-        return 0;
-    }
+ int main()
+ {
+      printf("hello tubashu!\n");
+      return 0;
+ }
 
 ```
 
@@ -32,6 +32,8 @@ include $(BUILD_EXECUTABLE)
 
 ```
 
+> 注意此处的 LOCAL_SRC_FILES 的源文件名,要不然会出错
+
 ### 2.编译C语言
 
 进入到此目录下,命令行执行以下命令
@@ -46,7 +48,7 @@ ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk
 
 adb 命令输入
 
-```
+``` shell
 
 adb shell getprop |grep cpu
 
@@ -54,7 +56,7 @@ adb shell getprop |grep cpu
 
 命令行显示
 
-```
+``` shell
 
 [ro.product.cpu.abi]: [arm64-v8a]
 [ro.product.cpu.abilist]: [arm64-v8a,armeabi-v7a,armeabi]
