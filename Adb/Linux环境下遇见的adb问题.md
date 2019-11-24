@@ -99,6 +99,3 @@ sudo chmod 6755  /usr/lib/adb
 
 adb kill-server
 ```
-
-
-

@@ -39,3 +39,12 @@ int height3 = dm.heightPixels;
 ```java
 ContextCompat.getColor(context, R.color.color_name)l
 ```
+
+### BitDrawabel 过时方法替代
+
+在popupWindow中使用此方法创建一个空白的背景时显示过时
+
+```
+popupWindow.setBackgroundDrawable(new Drawable(andorid.graphics.Color.WHITE));
+//android.graphics.Color.TRANSPARENT
+```
