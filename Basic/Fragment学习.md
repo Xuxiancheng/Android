@@ -11,7 +11,7 @@ log打印：
 ##### 周期说明
 
 1. ###### onAttach()
- 
+
    这个是回调函数
    这个时候 activity已经传进来了,获得activity的传递的值
    就可以进行 与activity的通信里
@@ -72,7 +72,7 @@ log打印：
    通常用于 用户的提交（可能用户离开后不会回来了）
 
 8. ###### onStop()
- 
+
    和activity等同 
    fragment不可见的，可能情况：activity被stopped了 OR  fragment被移除但被加入到回退栈中
    一个stopped的fragment仍然是活着的如果长时间不用也会被移除
@@ -123,7 +123,7 @@ log打印：
 
 
 
-####3.管理Fragment回退栈
+#### 3.管理Fragment回退栈
 
 ```java
 FragmentTransaction.addToBackStack(String)
@@ -131,7 +131,7 @@ FragmentTransaction.addToBackStack(String)
 
 
 
-####4.Fragment与Activity通信
+#### 4.Fragment与Activity通信
 
 在Fragment中可以通过getActivity得到当前绑定的Activity的实例，然后进行操作。
 
@@ -158,7 +158,7 @@ button.setText("hello");
     }
 ```
 
-####6.Fragment数据保存
+#### 6.Fragment数据保存
 
 和Activity类似，Fragment也有onSaveInstanceState的方法，在此方法中进行保存数据，然后在onCreate或者onCreateView或者onActivityCreated进行恢复都可以
 
@@ -168,7 +168,7 @@ button.setText("hello");
 
 [Android 屏幕旋转 处理 AsyncTask 和 ProgressDialog 的最佳方案](https://blog.csdn.net/lmj623565791/article/details/37936275)
 
-####8.Fragment创建对话框
+####  8.Fragment创建对话框
 
 1.像创建普通的AlertDialog的方法创建FragmentDialog
 

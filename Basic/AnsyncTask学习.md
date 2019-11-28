@@ -1,9 +1,10 @@
-#AnsyncTask学习
-###相关概念
+# AnsyncTask学习
+### 相关概念
 1.应用程序(Application)：为了完成特定任务，用某种语言编写的一组指令集合(一组静态代码)
 2.进程(Process) :运行中的程序，系统调度与资源分配的一个独立单位，操作系统会为每个进程分配 一段内存空间，程序的依次动态执行，经理代码加载 -> 执行 -> 执行完毕的完整过程！
 3.线程(Thread)：比进程更小的执行单元，每个进程可能有多条线程，线程需要放在一个进程中才能执行！ 线程是由程序负责管理的！！！而进程则是由系统进行调度的！！！
 4.多线程概念(Multithreading)：并行地执行多条指令，将CPU的时间片按照调度算法，分配给各个线程，实际上是分时执行的，只是这个切换的时间很短，用户感觉是同时而已！(不得不吐槽python多线程里的全局锁)
+
 ***************************************
 Android为很么要引入异步任务：
 >因为Android程序刚启动时，会同时启动一个对应的主线程(Main Thread)，这个主线程主要负责处理 与UI相关的事件！有时我们也把他称作UI线程！而在Android App时我们必须遵守这个单线程模型的规则： Android UI操作并不是线程安全的并且这些操作都需要在UI线程中执行！ 假如我们在非UI线程中，比如在主线程中new Thread()另外开辟一个线程，然后直接在里面修改UI控件的值； 此时会抛出下述异常： android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views 另外，还有一点，如果我们把耗时的操作都放在UI线程中的话，如果UI线程超过5s没有响应用于请求，那么 这个时候会引发ANR(Application Not Responding)异常，就是应用无响应~ 最后还有一点就是：Android 4.0后禁止在UI线程中执行网络操作~不然会报: android.os.NetworkOnMainThreadException
