@@ -1,6 +1,11 @@
 # Android 权限申请
 ## 一. 权限分类
 ### 1. 正常权限
+
+略
+
+> 正常权限在清单文件中生命即可，无需要其它操作;
+
 ### 2. 危险权限
 
 |权限组|权限名|
@@ -30,9 +35,10 @@
 |STORAGE|READ_EXTERNAL_STORAGE|
 ||WRITE_EXTERNAL_STORAGE|
 
-> 危险除了在清单文件中申声明外,还需要在代码中动态申请;  
+> 危险权限除了在清单文件中申声明外,还需要在代码中动态申请;  
 
 ## 二. 权限申请流程
+
 ### 1. 清单文件声明
 
 ``` xml
@@ -41,6 +47,7 @@
 ```
 
 ### 2. 权限检查
+
 在申请权限前需要先提前检查应用是否拥有此权限
 
 ``` java
@@ -74,7 +81,8 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 }
 ```
 ### 5.权限用途解释
-在全新啊申请过程中，有的权限有被客户禁止的风险，因此需要在用户拒绝时对用户解释申请此权限的用途；
+
+权限申请过程中，有的权限有被客户禁止的风险，因此需要在用户拒绝时对用户解释申请此权限的用途；
 
 ``` java 
 if(ActivityCompat.shouldShowRequestPermissionRationale(PermissionRequest.this,Manifest.permission.WRITE_EXTERNAL_STORAGE)){
@@ -96,4 +104,10 @@ if(ActivityCompat.shouldShowRequestPermissionRationale(PermissionRequest.this,Ma
 此方法在第一次被用户拒绝时返回false，当客户第二次申请时和选择不再询问时会返回true，此时需要跟用户解释此权限的用途。
 
 ## 三. 权限组
+
 如果当一个权限组内的某一个权限被授予时，当应用再申请同一个权限组内的其它权限时，系统会自动授予其它权限。
+
+## 四.国产手机权限适配
+
+由于Android手机的开放性，导致国产手机厂商可以自由魔改源代码，导致应用在适配国产手机的过程中出现各种各样的问题，而应对的方式更是群魔乱舞。😭
+
