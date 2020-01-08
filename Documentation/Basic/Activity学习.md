@@ -9,7 +9,7 @@
 
 ## 2.启动另一个Ａctivity的方式
 
-.显示启动：
+. 显示启动：
 
 ```java
 //显式启动的方式
@@ -17,7 +17,7 @@
         MainActivity.this.startActivity(intent);
 ```
 
-.隐式启动:
+. 隐式启动:
 
 AndroidManifest.xml
 
