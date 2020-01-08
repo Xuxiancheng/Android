@@ -111,3 +111,23 @@ if(ActivityCompat.shouldShowRequestPermissionRationale(PermissionRequest.this,Ma
 
 由于Android手机的开放性，导致国产手机厂商可以自由魔改源代码，导致应用在适配国产手机的过程中出现各种各样的问题，而应对的方式更是群魔乱舞。😭
 
+``` java 
+/**
+ * 跳转到应用详情界面
+ */
+public static void gotoAppDetailIntent(Activity activity) {
+     Intent intent = new Intent();
+     intent.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+     intent.setData(Uri.parse("package:" + activity.getPackageName()));
+     activity.startActivity(intent);
+}
+
+/**
+* 跳转到系统总设置界面，如果应用跳转失败可以选择此方法作为备用
+*/
+Intent mItent=new Intent(Settings.ACTION_SETTINGS);
+startActivity(mIntent);
+```
+
+
+

@@ -60,7 +60,7 @@
 
 </LinearLayout>
 ```
-注意此处的　android:id="@+id/lly_toast"，这是必须有的
+>  注意此处的　android:id="@+id/lly_toast"，这是必须有的
 
 
 ### 3.java代码
