@@ -262,4 +262,8 @@ class MyAnsyTask extends AsyncTask<Void,Integer,Boolean>{
 ```
 >1.myAnsyTask.execute();必须要写，否则会报错！
 
->2.AsyncTask<Void,Integer,Boolean>,这三个参数很重要
+>2.AsyncTask<Params,Progress,Result>,这三个参数很重要:
+>
+>- Params表示用于AsyncTask执行任务的参数的类型
+>- Progress表示在后台线程处理的过程中，可以阶段性地发布结果的数据类型
+>- Result表示任务全部完成后所返回的数据类型

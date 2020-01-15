@@ -1,5 +1,7 @@
-## 如何在Android6.0版本后获取蓝牙MAC地址
-1.利用net.vidageek(第三方jar包)
+## 如何获取蓝牙MAC地址
+
+### 1.net.vidageek(第三方jar包)
+
 ```java
 Object bluetoothManageService = new Mirror().on(adapter).get().field("mService");
 if (bluetoothManageService == null)
@@ -11,7 +13,8 @@ if (address != null && address instanceof String) {
     return null;
 }
 ```
-2.利用反射方法
+### 2.反射
+
 ```java
 private String getBluetoothMacAddress() {
     BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -42,7 +45,8 @@ private String getBluetoothMacAddress() {
 }
 ```
 
-3.旧版本获取蓝牙MAC的地址
+### 3.旧版本
+
 ```java
 BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
 ```
@@ -51,7 +55,12 @@ BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
 BluetoothAdapter adapter = (BluetoothAdapter) getApplicationContext().getSystemService(BLUETOOTH_SERVICE);
 ```
 
-##### 安卓6以后的版本使用此方法拿不到真实的MAC地址
+安卓6以后的版本使用此方法拿不到真实的MAC地址:
+
 ```java
 String macAddr = adapter.getAddress();
 ```
+
+### 4.Android10之后
+
+获取蓝牙Mac的方法失效（此版本后禁止使用反射），暂时未找到有效的方法。
