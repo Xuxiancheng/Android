@@ -22,10 +22,6 @@
 
 > 用户可以通过新的权限选项更好地控制他们的位置数据；现在，他们可以允许应用仅在实际使用（在前台运行）时访问位置信息。对于大部分应用来说，这提供了足够的访问级别；而对于用户来说，这在确保透明度和控制权方面是一项重大改进。                                                                                                                                                              
 
-![](https://developer.android.com/images/about/versions/10/overview/location.png)
-
-​																*用户现在可以选择在应用在前台运行时授予其访问位置信息的权限*
-
 2. 在扫描网络时保护位置数据
 
 ​           用于扫描网络的大多数API都需要粗略位置权限
@@ -74,7 +70,7 @@ Android 10 中引入了大量变更(如改进了系统界面、让权限授予�
 
 * 移除了联系人亲密程度信息
 * 随机分配MAC地址
-* 对`/proc/net`文件心痛的访问权限实施了限制
+* 对`/proc/net`文件的访问权限实施了限制
 * 对不可重置的设备标志符实施了限制
 * 限制了对剪贴板数据的访问权限
 * 保护USB设备序列号
@@ -155,7 +151,7 @@ Android 10 中引入了大量变更(如改进了系统界面、让权限授予�
 
 默认情况下，在搭载 Android 10 或更高版本的设备上，系统会传输随机分配的 MAC 地址。
 
-**WIFI Mac 与 蓝牙Mac 均获取不到或获取的都是默认值**
+**WIFI Mac 与 蓝牙 Mac 均获取不到或获取的都是默认值**
 
 > 如果您的应用处理[企业使用场景](https://developers.google.com/android/work/)，平台会提供 API，用于执行与 MAC 地址相关的几个操作。
 >
@@ -213,8 +209,6 @@ Android 10 中引入了大量变更(如改进了系统界面、让权限授予�
 
 ###### 对启用和停用 WLAN 实施了限制
 
-
-
 以 Android 10 或更高版本为目标平台的应用无法启用或停用 WLAN。[`WifiManager.setWifiEnabled()`](https://developer.android.com/reference/android/net/wifi/WifiManager#setWifiEnabled(boolean)) 方法始终返回 `false`。
 
 
@@ -224,44 +218,6 @@ Android 10 中引入了大量变更(如改进了系统界面、让权限授予�
 如果应用以 Android 10 或更高版本为目标平台，则它必须具有 [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) 权限才能使用 WLAN、WLAN 感知或蓝牙 API 中的一些方法。以下部分列举了受影响的类和方法。
 
 > **注意:** 如果您的应用在 Android 10 或更高版本平台上运行，但其目标平台是 Android 9（API 级别 28）或更低版本，则只要您的应用已声明 [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) 或 [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) 权限，您就可以使用受影响的 API（[`WifiP2pManager`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager) API 除外）。
-
-电话
-
-- `TelephonyManager`
-  - `getCellLocation()`
-  - `getAllCellInfo()`
-  - `requestNetworkScan()`
-  - `requestCellInfoUpdate()`
-  - `getAvailableNetworks()`
-  - `getServiceState()`
-- `TelephonyScanManager`
-  - `requestNetworkScan()`
-- `TelephonyScanManager.NetworkScanCallback`
-  - `onResults()`
-- `PhoneStateListener`
-  - `onCellLocationChanged()`
-  - `onCellInfoChanged()`
-  - `onServiceStateChanged()`
-
-WLAN
-
-- `WifiManager`
-  - `startScan()`
-  - `getScanResults()`
-  - `getConnectionInfo()`
-  - `getConfiguredNetworks()`
-- [`WifiAwareManager`](https://developer.android.com/reference/android/net/wifi/aware/WifiAwareManager)
-- [`WifiP2pManager`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager)
-- [`WifiRttManager`](https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager)
-
-蓝牙
-
-- `BluetoothAdapter`
-  - `startDiscovery()`
-  - `startLeScan()`
-- [`BluetoothAdapter.LeScanCallback`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter.LeScanCallback)
-- `BluetoothLeScanner`
-  - `startScan()`
 
 
 
@@ -275,7 +231,7 @@ WLAN
 
 ###### 面向用户的权限检查(针对旧版本)
 
-如果您的应用以 Android 5.1（API 级别 22）或更低版本为目标平台，则用户首次在搭载 Android 10 或更高版本的平台上使用您的应用时，系统会向其显示权限屏幕，如图 1 所示。此屏幕让用户有机会撤消系统先前在安装时向应用授予的访问权限。
+如果您的应用以 Android 5.1（API 级别 22）或更低版本为目标平台，则用户首次在搭载 Android 10 或更高版本的平台上使用您的应用时，系统会向其显示权限屏幕。
 
 
 
