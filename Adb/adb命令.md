@@ -1,6 +1,6 @@
 # adb命令
 
-##  一.启动应用命令
+## 一.启动应用命令
 
 ```shell
 adb shell monkey -p com.android.settings -c android.intent.category.LAUNCHER 1

@@ -44,7 +44,7 @@ echo "手机物理密度:"   `adb shell wm density|awk '{print $3}'`
 echo "当前手机电量:"  `adb shell dumpsys battery |grep level|awk '{print $2}'`
 
 #可用feature
-#adb shell pm list features  
+#adb shell pm list features
 
 echo "每个应用内存的上限:"  `adb shell getprop dalvik.vm.heapsize`
 
