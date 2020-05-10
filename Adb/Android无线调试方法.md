@@ -8,10 +8,10 @@
 
 3. 输入以下命令:
 
-```shell
-adb tcpip 5555
-adb connect <DEVICE_IP_ADDRESS>
-```
+   ```shell
+   adb tcpip 5555
+   adb connect <DEVICE_IP_ADDRESS>
+   ```
 
 4. 取消USB连接
 
