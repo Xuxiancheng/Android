@@ -12,9 +12,9 @@ Android 提供了以下功能来帮助您构建 Material Design 应用：
 
 要充分利用各项 Material 功能（例如，为标准界面微件设置样式），以及简化应用的样式定义，请将基于 Material 的主题背景应用到您的应用中。
 
-<img src="Material Design设计.assets/MaterialDark-20200604105122129.png" alt="img" style="zoom:50%;" />
+<img src="./Material Design设计.assets/MaterialDark-20200604105122129.png" alt="img" style="zoom:50%;" />
 
-<img src="Material Design设计.assets/MaterialLight.png" alt="img" style="zoom:50%;" />
+<img src="./Material Design设计.assets/MaterialLight.png" alt="img" style="zoom:50%;" />
 
 请参阅如何[应用 Material 主题背景](https://developer.android.google.cn/guide/topics/ui/look-and-feel/themes#MaterialTheme)。
 
@@ -34,7 +34,7 @@ Android 提供了以下功能来帮助您构建 Material Design 应用：
 * 阴影的大小：视图的 Z 值越高，投射的阴影越大。
 * 绘制顺序：Z 值较高的视图会显示在其他视图的顶部。
 
-![img](Material Design设计.assets/cast-shadows_2x.png)
+![img](./Material Design设计.assets/cast-shadows_2x.png)
 
 当您的布局包含卡片式布局时，通常会应用高度，这有助于您在提供 Material 样式的卡片中显示重要的信息。您可以使用 `CardView` 微件创建具有默认高度的卡片。如需了解详情，请参阅[创建卡片式布局](https://developer.android.google.cn/guide/topics/ui/layout/cardview)。
 
@@ -55,7 +55,7 @@ Android 提供了以下功能来帮助您构建 Material Design 应用：
 
 如需了解详情，请参阅[动画概览](https://developer.android.google.cn/training/animation/overview)。
 
-![](Material Design设计.assets/ContactsAnim.mp4)
+![](./Material Design设计.assets/ContactsAnim.mp4)
 
 ## 可绘制资源
 
