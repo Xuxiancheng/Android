@@ -134,7 +134,6 @@ android {
 ### 2.打开`java\android\ndkstudy\JniUtil.java`文件,添加如下代码:
 
 ``` java
-
 package com.android.ndkstudy;
 
 public class JniUtil {
@@ -147,14 +146,12 @@ public class JniUtil {
     public native String test();
 
 }
-
 ```
 
 ### 3.java代码调用
 
 ``` java
-
 JniUtil jniUtil = new JniUtil();
 Toast.makeText(MainActivity.this, "-->"+jniUtil.test(),Toast.LENGTH_SHORT).show();
-
 ```
+

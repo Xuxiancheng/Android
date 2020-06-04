@@ -9,27 +9,23 @@
 hello.c
 
 ``` c
-
  #include <stdio.h>
-     
+ 
  int main()
  {
       printf("hello tubashu!\n");
       return 0;
  }
-
 ```
 
 Android.mk
 
 ``` mk
-
 LOCAL_PATH:=$(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE:=hello
 LOCAL_SRC_FILES:=hello.c
 include $(BUILD_EXECUTABLE)
-
 ```
 
 > 注意此处的 LOCAL_SRC_FILES 的源文件名,要不然会出错
@@ -39,9 +35,7 @@ include $(BUILD_EXECUTABLE)
 进入到此目录下,命令行执行以下命令
 
 ``` shell
-
 ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk
-
 ```
 
 ### 3.CPU架构查找
@@ -49,15 +43,12 @@ ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk
 adb 命令输入
 
 ``` shell
-
 adb shell getprop |grep cpu
-
 ```
 
 命令行显示
 
 ``` shell
-
 [ro.product.cpu.abi]: [arm64-v8a]
 [ro.product.cpu.abilist]: [arm64-v8a,armeabi-v7a,armeabi]
 [ro.product.cpu.abilist32]: [armeabi-v7a,armeabi]
@@ -65,5 +56,4 @@ adb shell getprop |grep cpu
 [ro.vendor.product.cpu.abilist]: [arm64-v8a,armeabi-v7a,armeabi]
 [ro.vendor.product.cpu.abilist32]: [armeabi-v7a,armeabi]
 [ro.vendor.product.cpu.abilist64]: [arm64-v8a]
-
 ```
