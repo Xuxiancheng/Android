@@ -90,7 +90,7 @@ Volley 提供了一种便捷方法 `Volley.newRequestQueue`，该方法会使用
 
 请注意，阻塞 I/O 和解析/解码等开销大的操作都是在工作器线程上完成的。您可以添加来自任意线程的请求，但响应始终会在主线程上传送。
 
-![](https://developer.android.google.cn/images/training/volley-request.png)
+![shadow](https://developer.android.google.cn/images/training/volley-request.png)
 
 ### 取消请求
 
