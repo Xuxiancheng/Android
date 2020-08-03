@@ -1,4 +1,4 @@
-# <center>Handler 详解</center>
+#  Handler 详解
 
 ![](https://user-gold-cdn.xitu.io/2019/2/27/1692e1e88d6a6a9b?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1)
 
