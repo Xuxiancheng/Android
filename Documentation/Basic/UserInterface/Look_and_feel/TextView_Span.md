@@ -1,13 +1,13 @@
-#### TextView中的Spans学习
+# TextView中的Spans学习
 
-##### 1. 什么是Spans?
+## 1. 什么是Spans?
 
 > Spans are powerful markup objects that you can use to style text at a character or paragraph level
 
 译文
 > Spans是功能强大的标记对象，可用于在字符或段落级别设置文本样式
 
-##### 2. Spans类型
+##  2. Spans类型
 
 > Mutable text       可变文本
 > Mutable markup     可变标记
@@ -15,14 +15,14 @@
 
  ![span_typelist](./Screen/TextView_Spans_typelist.jpg)
 
-##### 3. 如何选择使用哪种类型的Spans?
+## 3. 如何选择使用哪种类型的Spans?
 
 . 创建之后不会改变文本和标记,使用**SpannedString**
 . 如果需要将少量范围附加到单个文本对象，并且文本本身是只读的,使用**SpannableString**
 . 如果创建后需要修改文本，并且需要将跨度附加到文本，请使用**SpanNableStringBuilder**
 . 如果需要将大量跨度附加到文本对象，不管文本本身是否为只读，请使用**SpanNableStringBuilder**
 
-##### 4. 例子
+## 4. 例子
 
 ###### 更改文本颜色
 
