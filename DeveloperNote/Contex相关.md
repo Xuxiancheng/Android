@@ -180,3 +180,30 @@ public class BasicApplication extends Application {
 
 
 
+##  禁止在Application级生命周期对象中直接/间接持有Context引用
+
+Application级生命周期的对象（Application、单例）长期持有Context引用使Activity、Fragment、Dialog等组件无法被回收是导致应用内存泄漏最常见的原因，在开发工具类、组件时应从设计上避免。
+原则：
+
+* 能不使用Context就不使用Context
+* 能使用ApplicationContext解决的事情，不要使用ActivityContext
+* 能将Context作为局部变量用完就丢就不要缓存到成员域
+* 如必须在单例对象成员域中缓存context，必须写明注册/解除注册机制（类EventBus模式）
+
+**建议：** 由于Google不推荐持有static的ApplicationContext，在非Activity、Fragment环境下需要使用ApplicationContext时，可以使用反射获取。此方法位于浅灰名单，不会受到Android P以后的SDK政策影响
+
+``` java
+/** * 通过反射获取AppContext，避免直接使用static context */
+@SuppressLint("PrivateApi")
+private static Context getAppContext() {
+  Application application = null;
+  try {
+    application = (Application) Class.forName("android.app.ActivityThread")
+      .getMethod("currentApplication")
+      .invoke(null, (Object[]) null);
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+  return application;
+}
+```
