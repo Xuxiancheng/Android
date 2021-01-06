@@ -216,3 +216,57 @@ startActivity(intent);
 **添加权限**
 
 `<permission android:name="android.permission.DELETE_PACKAGES" />`
+
+
+
+## 判断跳转的Activity是否存在
+
+当Android系统调用Intent时，如果没有找到Intent匹配的Activity组件（Component），那么应用将报以下错误：	
+
+`android.content.ActivityNotFoundException:Unable to find explicit activity class`
+
+如果没有使用`UncaughtExceptionHandler`类来处理全局异常，那么程序将异常退出造成不好的用户体验。为了防止`ActivityNotFoundException`错误的出现，在***\*启动Activity之前先判断Intent是否存在\****。
+
+### 第一种方法
+
+``` java
+/**
+	 * 检测 响应某个意图的Activity 是否存在
+	 * @param context
+	 * @param intent
+	 * @return
+	 */
+	public static boolean isIntentAvailable(Context context, Intent intent) {
+	    final PackageManager packageManager = context.getPackageManager();
+	    List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+	            PackageManager.GET_ACTIVITIES);
+	    return list.size() > 0;
+	}
+```
+
+> 当然，上述第一种 方法也可以判断 Service、BroadCastReceiver、ContentProvider 组件是否存在，通过控制二个参数即;
+>
+> ``` java
+> List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+> 	            PackageManager.GET_SERVICE)；
+> ```
+
+### 第二种方法
+
+``` java
+/**
+	 * 第二种方法
+	 * intent.resolveActivity(getPackageManager())
+	 */
+	public void checkIntentAvailable(){
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+//      intent.setClassName(getPackageName(), className);
+        intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
+        // catch event that there's no activity to handle intent
+        if (intent.resolveActivity(getPackageManager()) != null) {	//存在
+            startActivity(intent);
+        } else {	//不存在
+            Log.e("", "not exists");
+        }
+	}
+```
