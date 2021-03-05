@@ -199,6 +199,11 @@ ACTION_SYNC_SETTINGS ：             // 跳转账户同步界面
                 startActivity(intent);  
 
 ACTION_USER_DICTIONARY_SETTINGS ：  //  跳转用户字典界面 
+  
+  //跳转到短信界面
+  Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.setType("vnd.android-dir/mms-sms");
+                    startActivity(intent); 
 ```
 
 ##  功能性
